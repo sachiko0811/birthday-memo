@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Memo</title>
+</head>
+<body>
+    <form action="/memos" method="POST">
+        <input type="date" placeholder="Birthday" name="bday">
+        <input type="text" placeholder="name" name="name">
+        <button type="submit">Submit</button>
+    </form>
+    <!-- <%= memos %> -->
+    <h2>Memos</h2>
+    <ul class="memos">
+    <% for(let i = 0; i < memos.length; i++) { %>
+        <li class="memo">
+            <span><%= memos[i].bday %></span>:
+            <span><%= memos[i].name %></span>
+            <button value=<%= memos[i].name %> class="edit-btn">Replace</button>
+            <button value=<%= memos[i].name %> class="delete-btn">Delete</button>
+        </li>
+        <%  } %>
+    </ul>
+    <div class="input-edit">
+        <input type="text" class="edit-input" placeholder="Edit your diary"/>
+    </div>
+
+    <script src="/main.js"></script>
+</body>
+</html>
